@@ -1,0 +1,28 @@
+{
+  "subversion": 17,
+  "dependencies": {
+    "superagent": "^3.8.2"
+  },
+  "main": "ethnamed.js",
+  "description": "API for Ethnamed",
+  "uperversion": "0.0",
+  "homepage": "https://github.com/ethnamed/api#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethnamed/api.git"
+  },
+  "author": "Andrey Stehno",
+  "keywords": [
+    "domain",
+    "address"
+  ],
+  "name": "ethnamed",
+  "version": "0.0.17",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethnamed/api/issues"
+  }
+}
