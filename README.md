@@ -1,7 +1,7 @@
 ### Ethnamed Registry API
 
 
-[Website](http://ethnamed.io) | [Collaborate](https://ide.c9.io/askucher/registrant-dapp) | [Discuss](https://t.me/ethnamed)
+[Website](http://ethnamed.io) | [Discuss](https://t.me/ethnamed)
 
 #### Use API
 
@@ -20,56 +20,33 @@ var showResult = function(err, result) {
     console.log(err, result);
 }
 
+// CHECK NAME
 
-// REGISTER NAME 
-//please topup the account before because each address costs
+ethnamed.verifyRecord("yourname", showResult);  // yourname == yourname.ethnamed.io
 
-var ethers = 0.01; // Please check the pricing on ethnamed.io
+// REGISTER NAME
+// You can set of update record by yourself once you get the 
 
-ethnamed.registerName(ethers, 'nickname', '0x123...', showResult);
+var request = {
+    amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
+    name: "yourname.ethnamed.io",           //=> It could be a different domain like microsoft.com, ethername.io, ...
+    record: '0x123...'                      //=> Verification Record with Standard ETH_ADDRESS,BTC_ADDRESS,...
+};
 
+// 1. In case when you use custom domain please send this request only when you put the meta tag in to the head of your website `yourname.domain.io`
+// <meta property='ethnamed' content='0x123...'>
 
-// CHANGE ADDRESS
-//Assign another address to nickname
+// 2. In case you use nickname.ethnamed.io you can just do nothing for verification
 
-ethnamed.changeAddress('nickname', '0x123...', showResult);
+ethnamed.setupRecord(request, showResult);
 
 
 // TRANSFER OWNERSHIP
-//Assign another owner
+// Assign another owner when you sell the domain name
 
-ethnamed.transferOwnership('nickname', '0x123...', showResult);
+ethnamed.transferOwnership("yourname.ethnamed.io", '0x123...', showResult);
 
 ```
-
-
-#### Start DAPP Server
-
-![Demo](http://res.cloudinary.com/nixar-work/image/upload/v1521280043/Screen_Shot_2018-03-17_at_11.46.42.png)
-
-
-Install
-```
-npm run setup
-npm run compile
-```
-
-Start the Ganache blockchain
-```
-npm run blockchain
-```
-
-Deploy contracts 
-```
-npm run deploy
-```
-
-Start the DAPP
-```
-npm run start
-```
-
-
 
 -----------------
 

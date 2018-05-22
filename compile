@@ -1,0 +1,3 @@
+lsc -c ethnamed.ls
+cp \../blockchain/.out/Ethnamed.abi.json ./Ethnamed.abi.json
+cp \../blockchain/.out/addresses.json ./addresses.json
