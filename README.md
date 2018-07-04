@@ -1,7 +1,7 @@
 ### Ethnamed Registry API
 
 
-[Website](http://ethnamed.io) | [Discuss](https://t.me/ethnamed)
+[Website](http://ethnamed.io) | [Discuss](https://t.me/ethnamed) | [Demo](http://wallet.ethnamed.io)
 
 #### Use API
 
@@ -9,7 +9,7 @@
 npm i ethnamed
 ```
 
-### INIT
+### INIT (Backend, Frontend)
 
 ```Javascript
 
@@ -22,17 +22,19 @@ var showResult = function(err, result) {
 }
 ```
 
-### CHECK NAME
+#### CHECK NAME
 
 ```Javascript
 
 ethnamed.verifyRecord("some@email.com", showResult);  // yourname == yourname.ethnamed.io
+
 ```
 
-###  REGISTER NAME
+####  REGISTER NAME
 You can set of update record by yourself once you get the 
 
 ```Javascript
+
 var request = {
     amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
     name: "some@email.com",           //=> It could be a different domain like microsoft.com, ethername.io, ...
@@ -45,20 +47,24 @@ var request = {
 // 2. In case you use nickname.ethnamed.io you can just do nothing for verification
 
 ethnamed.setupRecord(request, showResult);
+
 ```
 
-###  TRANSFER OWNERSHIP
+####  TRANSFER OWNERSHIP
 Assign another owner when you sell the domain name
 
 ```Javascript
+
 ethnamed.transferOwnership("some@email.com", '0x123...', showResult);
+
 ```
 
 
-### SEND TO (PAYPAL like functionality in crypto)
+#### SEND TO (PAYPAL like functionality in crypto)
 You can send funds to NON-existent address and let withdraw it when user registers it
 
 ```Javascript
+
 var request = {
     amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
     name: "some@email.com",                 //=> It could be a different domain like microsoft.com, ethername.io, ...
