@@ -22,14 +22,14 @@ var showResult = function(err, result) {
 
 // CHECK NAME
 
-ethnamed.verifyRecord("yourname", showResult);  // yourname == yourname.ethnamed.io
+ethnamed.verifyRecord("some@email.com", showResult);  // yourname == yourname.ethnamed.io
 
 // REGISTER NAME
 // You can set of update record by yourself once you get the 
 
 var request = {
     amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
-    name: "yourname.ethnamed.io",           //=> It could be a different domain like microsoft.com, ethername.io, ...
+    name: "some@email.com",           //=> It could be a different domain like microsoft.com, ethername.io, ...
     record: '0x123...'                      //=> Verification Record with Standard ETH_ADDRESS,BTC_ADDRESS,...
 };
 
@@ -44,7 +44,17 @@ ethnamed.setupRecord(request, showResult);
 // TRANSFER OWNERSHIP
 // Assign another owner when you sell the domain name
 
-ethnamed.transferOwnership("yourname.ethnamed.io", '0x123...', showResult);
+ethnamed.transferOwnership("some@email.com", '0x123...', showResult);
+
+// SEND TO (PAYPAL like functionality in crypto)
+//You can send funds to NON-existent address and let withdraw it when user registers it
+
+var request = {
+    amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
+    name: "some@email.com",                 //=> It could be a different domain like microsoft.com, ethername.io, ...
+};
+
+ethnamed.sendTo(request, showResult)
 
 ```
 
