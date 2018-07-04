@@ -9,8 +9,9 @@
 npm i ethnamed
 ```
 
-```Javascript
+### INIT
 
+```Javascript
 
 var web3 = if window ? window.web3 : require('web3');
 
@@ -19,14 +20,19 @@ var ethnamed = require('ethnamed')(window.web3);
 var showResult = function(err, result) {
     console.log(err, result);
 }
+```
 
-// CHECK NAME
+### CHECK NAME
+
+```Javascript
 
 ethnamed.verifyRecord("some@email.com", showResult);  // yourname == yourname.ethnamed.io
+```
 
-// REGISTER NAME
-// You can set of update record by yourself once you get the 
+###  REGISTER NAME
+You can set of update record by yourself once you get the 
 
+```Javascript
 var request = {
     amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
     name: "some@email.com",           //=> It could be a different domain like microsoft.com, ethername.io, ...
@@ -39,22 +45,26 @@ var request = {
 // 2. In case you use nickname.ethnamed.io you can just do nothing for verification
 
 ethnamed.setupRecord(request, showResult);
+```
 
+###  TRANSFER OWNERSHIP
+Assign another owner when you sell the domain name
 
-// TRANSFER OWNERSHIP
-// Assign another owner when you sell the domain name
-
+```Javascript
 ethnamed.transferOwnership("some@email.com", '0x123...', showResult);
+```
 
-// SEND TO (PAYPAL like functionality in crypto)
-//You can send funds to NON-existent address and let withdraw it when user registers it
 
+### SEND TO (PAYPAL like functionality in crypto)
+You can send funds to NON-existent address and let withdraw it when user registers it
+
+```Javascript
 var request = {
     amountEthers: 0.01,                     //=> Please checkout the pricing table on ethnamed.io
     name: "some@email.com",                 //=> It could be a different domain like microsoft.com, ethername.io, ...
 };
 
-ethnamed.sendTo(request, showResult)
+ethnamed.sendTo(request, showResult);
 
 ```
 
